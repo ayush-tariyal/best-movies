@@ -97,7 +97,7 @@ def add_movie():
         tmdb_url = f"https://api.themoviedb.org/3/search/movie?query={movie_form.movie_title.data}&include_adult=true&language=en-US&page=1"
         headers = {
             "accept": "application/json",
-            "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmMTY2YWY2ZmJjODEyMjQ2N2Q2NDA0MTMwNDdjMmViMyIsInN1YiI6IjY1NWEwNGI0YjU0MDAyMTRkMDcwNDNlNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.jlbFq1jktUGaMHLpsZwxXLva2YhUgZAp3yaRgoZcyHw",
+            "Authorization": secrets["API_KEY"],
         }
         response = requests.get(tmdb_url, headers=headers)
         response.raise_for_status()
@@ -113,7 +113,7 @@ def find_movie():
         id_url = f"https://api.themoviedb.org/3/movie/{movie_id}?language=en-US"
         headers = {
             "accept": "application/json",
-            "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmMTY2YWY2ZmJjODEyMjQ2N2Q2NDA0MTMwNDdjMmViMyIsInN1YiI6IjY1NWEwNGI0YjU0MDAyMTRkMDcwNDNlNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.jlbFq1jktUGaMHLpsZwxXLva2YhUgZAp3yaRgoZcyHw",
+            "Authorization": secrets["API_KEY"],
         }
         response = requests.get(id_url, headers=headers)
         response.raise_for_status()
